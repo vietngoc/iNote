@@ -1,0 +1,14 @@
+{
+  "title": "iNote",
+  "name": "inote",
+  "icon": "icon.png",
+  "version": "0.1.5",
+  "description": "Keep your thinks",
+  "main": "index.js",
+  "author": "Viết Ngọc",
+  "engines": {
+    "firefox": ">=36.0a1"
+  },
+  "license": "MIT",
+  "permissions": {"private-browsing": true}
+}

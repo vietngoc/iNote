@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="iNote">
+<head>
+  <meta charset="utf-8">
+  <title>iNote - Keep your thinks</title>
+  <link rel="stylesheet" href="css/inote.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="icon" href="img/in.png" />
+  <script src="js/angular.min.js"> </script>
+  <script src="js/ngbootstrap.min.js"> </script>
+  <script src="js/init.js"> </script>
+</head>
+<body>
+  <div id="navbar" class="navbar" ng-controller="NavBarCtrl">
+    <a href="" id="name" ng-click="aboutApp()" title ="About"> iNote </a>
+    <a href="https://github.com/vietngoc/iNote/issues" target="_blank" id="" class="btn button" title ="Report a bug"><span class="glyphicon glyphicon-flag" ></span></a>
+    <a href="" id="" ng-click="addNote()" class="btn button" title ="Add Note"><span class="glyphicon glyphicon-plus" ></span></a>
+  </div>
+  <div id="dashboard" class="note-list" ng-controller="DashboardCtrl"></div>
+  <script src="js/iNoteApp.js">  </script>
+</body>
+</html>
