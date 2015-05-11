@@ -2,9 +2,9 @@
 <div id ="n-{{$index}}" class= "note" style="">
   <div class="title" >
     <a href="" ng-click="Note.lock = !Note.lock" class="button" ng-show="Note.lock" title ="Click to Edit" style="float:left;margin-right: 10px;"><span class="glyphicon glyphicon-lock"></span> </a>
-    <a href=""ng-click="Note.lock =!Note.lock" class="button" ng-hide="Note.lock" title ="Click to Lock" style="float:left;margin-right: 10px;"><span class="glyphicon glyphicon-edit"></span> </a>
-    <a href=""ng-click="deleteNote($index)" class="button" ng-show="Note.lock"  style="float:right;margin-left: 10px;font-size:12px;" title ="Delete"><span class="glyphicon glyphicon-remove"></span> </a>
-    <a href=""ng-click="" class="button" ng-hide="Note.lock" style="float:right;margin-left: 10px;color:#B4B4B4;font-size:12px;" title ="Delete"><span class="glyphicon glyphicon-remove"></span> </a>
+    <a href="" ng-click="Note.lock = !Note.lock" class="button" ng-hide="Note.lock" title ="Click to Lock" style="float:left;margin-right: 10px;"><span class="glyphicon glyphicon-edit"></span> </a>
+    <a href="" ng-click="deleteNote($index)" class="button" ng-show="Note.lock"  style="float:right;margin-left: 10px;font-size:12px;" title ="Delete"><span class="glyphicon glyphicon-remove"></span> </a>
+    <a href="" ng-click="" class="button" ng-hide="Note.lock" style="float:right;margin-left: 10px;color:#B4B4B4;font-size:12px;" title ="Delete"><span class="glyphicon glyphicon-remove"></span> </a>
     <span contentEditable = "{{Note.lock}}" ng-click="" ng-model="Note.title"> {{Note.title}} </span>
   </div>
   <div class="content">

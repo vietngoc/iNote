@@ -1,2 +1,0 @@
-#iNote
-Keep your thinks

@@ -5,15 +5,17 @@
   <title>iNote - Keep your thinks</title>
   <link rel="stylesheet" href="css/inote.css">
   <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="icon" href="img/in.png" />
+  <link rel="icon" href="img/icon-16.png" />
   <script src="js/angular.min.js"> </script>
-  <script src="js/ngbootstrap.min.js"> </script>
+  <script src="js/ui-bootstrap.min.js"> </script>
   <script src="js/init.js"> </script>
 </head>
 <body>
   <div id="navbar" class="navbar" ng-controller="NavBarCtrl">
     <a href="" id="name" ng-click="aboutApp()" title ="About"> iNote </a>
     <a href="https://github.com/vietngoc/iNote/issues" target="_blank" id="" class="btn button" title ="Report a bug"><span class="glyphicon glyphicon-flag" ></span></a>
+    <!--<a href="" id="" ng-click="setting()" class="btn button" title ="Setting"><span class="glyphicon glyphicon-cog"></span> </a> -->
+    <!--<a href="" id="" ng-click="syncNote()" class="btn button" title ="Sync Note"><span class="glyphicon glyphicon-refresh" ></span></a>-->
     <a href="" id="" ng-click="addNote()" class="btn button" title ="Add Note"><span class="glyphicon glyphicon-plus" ></span></a>
   </div>
   <div id="dashboard" class="note-list" ng-controller="DashboardCtrl"></div>

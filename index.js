@@ -3,7 +3,7 @@ var tabs = require("sdk/tabs");
 var buttons = require('sdk/ui/button/action');
 var button = buttons.ActionButton({
   id: "iNote",
-  label: "iNote - Keep your thinks",
+  label: "iNote - Keep your thinkd",
   icon: {
     "16": "./img/icon-16.png",
     "32": "./img/icon-32.png",
@@ -14,10 +14,12 @@ var button = buttons.ActionButton({
   }
 });
 
+var tabs = require("sdk/tabs");
+var notifications = require("sdk/notifications");
 var store = require("sdk/simple-storage");
 var contextmenus = require("sdk/context-menu");
 var menu = contextmenus.Item({
-  label: "Save in new note",
+  label: "Send to new note",
   image: data.url("./img/icon-16.png"),
   context: contextmenus.SelectionContext(),
   contentScript: 'self.on("click", function () {' +
@@ -27,6 +29,14 @@ var menu = contextmenus.Item({
   onMessage: function (selectionText) {
    if (!store.storage.iCache) store.storage.iCache = [];
    store.storage.iCache.push(selectionText);
+   notifications.notify({
+     iconURL: data.url("./img/icon-64.png"),
+     title: "iNote",
+     text: "The text that you selected has been saved",
+     onClick: function handleClick (){
+        tabs.open("./dashboard.html");
+      }
+   })
   }
 });
 
@@ -42,6 +52,6 @@ var page = pages.PageMod({
     worker.port.emit("iCache", store.storage.iCache);
     worker.port.on("iNote", function(result){
     if (result == "sucess") store.storage.iCache = [];
-    });
+      });
     }
 });

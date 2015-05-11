@@ -1,5 +1,29 @@
 
 var iNoteApp = angular.module('iNote', ['ui.bootstrap']);
+iNoteApp.factory("dataService",['$window', function($window, $rootScope, $scope){
+  return {
+    save: function(key, value) {
+      $window.localStorage[key] = angular.toJson(value);
+    },
+    get: function(key) {
+      return angular.fromJson($window.localStorage[key]);
+    },
+    sync: function (key) {
+
+    },
+    backup: function (key){
+      var blob = new Blob([key], { type: 'text/plain;charset=utf-8' });
+      backupURL = URL.createObjectURL(blob);
+    },
+    restore: function (key){
+
+    },
+    clear: function(){
+      $window.localStorage.clear();
+    }
+  }
+}]);
+
 iNoteApp.directive('noteList', function() {
    return {
     restrict : 'C',
@@ -38,6 +62,27 @@ iNoteApp.controller('NavBarCtrl',function ($rootScope, $scope, $modal){
     $rootScope.$broadcast("addNote")
   };
 
+/*  $scope.syncNote = function() {
+    var about = $modal.open({
+      templateUrl: 'elm/sync.html',
+      controller: '',
+      size: '',
+      resolve: {
+        }
+      });
+  }; */
+
+  /*  $scope.setting = function (){
+    var setting = $modal.open({
+        templateUrl: 'elm/setting.html',
+        controller: 'SettingCtrl',
+        size: '',
+        resolve: {
+          }
+    });
+
+  }; */
+
 });
 iNoteApp.controller('DashboardCtrl',function ($window, $rootScope, $scope){
   function sticky (lock, title, content){ this.lock = lock; this.title = title; this.content = content;  };
@@ -62,4 +107,16 @@ iNoteApp.controller('DashboardCtrl',function ($window, $rootScope, $scope){
 $window.addEventListener('beforeunload', function(event) {
  $window.localStorage["iNote"] = angular.toJson(iNote);
  }, false);
+});
+iNoteApp.controller('SettingCtrl', function($window, $rootScope, $scope, $modalInstance ){
+  var Style = {};
+  var iNote = angular.fromJson($window.localStorage.iNote);
+
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
 });
